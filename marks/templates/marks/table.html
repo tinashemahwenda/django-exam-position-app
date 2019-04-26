@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Table</title>
+    <link href="{% static 'marks/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'marks/css/table.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid banner">
+        <h1 class="text-center">Upper Students Results</h1>
+        <a href="#" class="text-center btn btn-warning">Computer Science</a>
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead class="thead-default">
+                <tr>
+                    <th>Position</th>
+                    <th>Name</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+
+            {% for record in records %}
+            <tbody>
+                <tr>
+                    <th>{{ forloop.counter}}</th>
+                    <td><span class="font-weight-bold">{{ record.name }}</span> {{ record.sname }} </td>
+                    <td>{{ record.mark }}%</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</body></html>
